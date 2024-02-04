@@ -1,0 +1,390 @@
+{
+	"info": {
+		"_postman_id": "4243794a-32e7-488b-ac8f-7a6e8ea65b50",
+		"name": "1_TestData_HW1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23550378"
+	},
+	"item": [
+		{
+			"name": "user paper1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/doregister?email=paper1@mail.com&name=paper1&password=paper1",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"doregister"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "paper1@mail.com"
+						},
+						{
+							"key": "name",
+							"value": "paper1"
+						},
+						{
+							"key": "password",
+							"value": "paper1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user tomato1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/doregister?email=tomato1@mail.com&name=tomato1&password=tomato1",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"doregister"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "tomato1@mail.com"
+						},
+						{
+							"key": "name",
+							"value": "tomato1"
+						},
+						{
+							"key": "password",
+							"value": "tomato1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user tomato2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/doregister?email=tomato2@mail.com&name=tomato2&password=tomato2",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"doregister"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "tomato2@mail.com"
+						},
+						{
+							"key": "name",
+							"value": "tomato2"
+						},
+						{
+							"key": "password",
+							"value": "tomato2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user eggplant1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/doregister?email=eggplant1@mail.com&name=eggplant1&password=eggplant1",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"doregister"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "eggplant1@mail.com"
+						},
+						{
+							"key": "name",
+							"value": "eggplant1"
+						},
+						{
+							"key": "password",
+							"value": "eggplant1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user cucumbershopowner1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/doregister?email=cucumbershopowner1@mail.com&name=cucumbershopowner1&password=cucumbershopowner1",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"doregister"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "cucumbershopowner1@mail.com"
+						},
+						{
+							"key": "name",
+							"value": "cucumbershopowner1"
+						},
+						{
+							"key": "password",
+							"value": "cucumbershopowner1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "company cucumbershop1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/createcompany?company_name=cucumbershop1&company_type=ООО&company_users[1]=paper1@mail.com&email_owner=cucumbershopowner1@mail.com",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"createcompany"
+					],
+					"query": [
+						{
+							"key": "company_name",
+							"value": "cucumbershop1"
+						},
+						{
+							"key": "company_type",
+							"value": "ООО"
+						},
+						{
+							"key": "company_users[1]",
+							"value": "paper1@mail.com"
+						},
+						{
+							"key": "email_owner",
+							"value": "cucumbershopowner1@mail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "company aubergineshop1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/createcompany?company_name=aubergineshop1&company_type=ИП&company_users[1]=paper1@mail.com&email_owner=eggplant1@mail.com",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"createcompany"
+					],
+					"query": [
+						{
+							"key": "company_name",
+							"value": "aubergineshop1"
+						},
+						{
+							"key": "company_type",
+							"value": "ИП"
+						},
+						{
+							"key": "company_users[1]",
+							"value": "paper1@mail.com"
+						},
+						{
+							"key": "email_owner",
+							"value": "eggplant1@mail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "company aubergineshop2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/createcompany?company_name=aubergineshop2&company_type=ИП&company_users[1]=paper1@mail.com&email_owner=eggplant1@mail.com",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"createcompany"
+					],
+					"query": [
+						{
+							"key": "company_name",
+							"value": "aubergineshop2"
+						},
+						{
+							"key": "company_type",
+							"value": "ИП"
+						},
+						{
+							"key": "company_users[1]",
+							"value": "paper1@mail.com"
+						},
+						{
+							"key": "email_owner",
+							"value": "eggplant1@mail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "company eggplant1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/createcompany?company_name=eggplantshop1&company_type=ИП&company_users[1]=paper1@mail.com&email_owner=eggplant1@mail.com",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"createcompany"
+					],
+					"query": [
+						{
+							"key": "company_name",
+							"value": "eggplantshop1"
+						},
+						{
+							"key": "company_type",
+							"value": "ИП"
+						},
+						{
+							"key": "company_users[1]",
+							"value": "paper1@mail.com"
+						},
+						{
+							"key": "email_owner",
+							"value": "eggplant1@mail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "company eggplant2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/createcompany?company_name=eggplantshop2&company_type=ИП&company_users[1]=paper1@mail.com&email_owner=eggplant1@mail.com",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"createcompany"
+					],
+					"query": [
+						{
+							"key": "company_name",
+							"value": "eggplantshop2"
+						},
+						{
+							"key": "company_type",
+							"value": "ИП"
+						},
+						{
+							"key": "company_users[1]",
+							"value": "paper1@mail.com"
+						},
+						{
+							"key": "email_owner",
+							"value": "eggplant1@mail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

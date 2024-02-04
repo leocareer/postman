@@ -1,0 +1,582 @@
+{
+	"info": {
+		"_postman_id": "82aa67b3-15ff-4ca6-87b6-3aec5ce016cc",
+		"name": "2_AddComment_Created",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23550378"
+	},
+	"item": [
+		{
+			"name": "TokenCheck_1",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "AUaP65O4PnLFjoKqslJkCF9B",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mail.for.testbase@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://testbase.atlassian.net/rest/api/2/issue/TEST-17411",
+					"protocol": "https",
+					"host": [
+						"testbase",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"TEST-17411"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TokenCheck_2",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "AUaP65O4PnLFjoKqslJkCF9B",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mail.for.testbase@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://testbase.atlassian.net/rest/auth/1/session",
+					"protocol": "https",
+					"host": [
+						"testbase",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"auth",
+						"1",
+						"session"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TokenCheck_3",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "AUaP65O4PnLFjoKqslJkCF9B",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mail.for.testbase@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://testbase.atlassian.net/rest/api/2/issue/createmeta",
+					"protocol": "https",
+					"host": [
+						"testbase",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"createmeta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddBug_mail",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "AUaP65O4PnLFjoKqslJkCF9B",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mail.for.testbase@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fields\":{\n        \"project\":{\n            \"key\": \"TEST\",\n            \"body\": \"Try to add, and send information\"\n    },\n    \"summary\": \"Problem with connection\",\n    \"description\": \"create new bug report\",\n    \"issuetype\":{\n        \"name\": \"Bug\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://testbase.atlassian.net/rest/api/2/issue",
+					"protocol": "https",
+					"host": [
+						"testbase",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddBug_kewin",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "hoxFgn2uHEQQrWw9JdSS8BF5",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "kewin.a@yandex.ru",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fields\":{\n        \"project\":{\n            \"key\": \"BEGIN\",\n            \"body\": \"Try to add, and send information\"\n    },\n    \"summary\": \"Test\",\n    \"description\": \"create new bug report\",\n    \"issuetype\":{\n        \"name\": \"Bug\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://testbase.atlassian.net/rest/api/2/issue",
+					"protocol": "https",
+					"host": [
+						"testbase",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetRole",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "AUaP65O4PnLFjoKqslJkCF9B",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mail.for.testbase@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"actors\": [\n        {\n            \"id\": 36462,\n            \"displayName\": \"jira-developers\",\n            \"type\": \"atlassian-group-role-actor\",\n            \"name\": \"jira-developers\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://testbase.atlassian.net/rest/api/2/role/36462/actors",
+					"protocol": "https",
+					"host": [
+						"testbase",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"role",
+						"36462",
+						"actors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddComment",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "hoxFgn2uHEQQrWw9JdSS8BF5",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "kewin.a@yandex.ru",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"body\": \"Comment\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://testbase.atlassian.net/rest/api/2/issue/BEGIN-98/comment",
+					"protocol": "https",
+					"host": [
+						"testbase",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"BEGIN-98",
+						"comment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2_CreatedCheck_1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"201 Created\", function () {",
+							"    pm.response.to.have.status(\"Created\");",
+							"});",
+							"",
+							"pm.test(\"FAIL 201 Created\", function () {",
+							"    pm.response.to.have.status(\"Not created\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "hoxFgn2uHEQQrWw9JdSS8BF5",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "kewin.a@yandex.ru",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"body\": \"Comment for Created Check\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://testbase.atlassian.net/rest/api/2/issue/BEGIN-96/comment",
+					"protocol": "https",
+					"host": [
+						"testbase",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"BEGIN-96",
+						"comment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2_CreatedCheck_2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"201 Created\", function () {",
+							"    pm.response.to.have.status(\"Created\");",
+							"});",
+							"",
+							"pm.test(\"FAIL 201 Created\", function () {",
+							"    pm.response.to.have.status(\"Not created\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "AUaP65O4PnLFjoKqslJkCF9B",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mail.for.testbase@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"body\": \"Comment for Created Check\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://testbase.atlassian.net/rest/api/2/issue/TEST-17413/comment",
+					"protocol": "https",
+					"host": [
+						"testbase",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"TEST-17413",
+						"comment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3_ContentTypeCheck",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"ContentTypeCheck\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json;charset=UTF-8\");",
+							"});",
+							"",
+							"pm.test(\"FAIL ContentTypeCheck\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "AUaP65O4PnLFjoKqslJkCF9B",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mail.for.testbase@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"body\": \"Comment for Created Check\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://testbase.atlassian.net/rest/api/2/issue/TEST-17413/comment",
+					"protocol": "https",
+					"host": [
+						"testbase",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"TEST-17413",
+						"comment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3_JsonCheck",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"JsonCheck\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.contain(\"application/json\");",
+							"});",
+							"",
+							"pm.test(\"FAIL JsonCheck\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.contain(\"application/jsons\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "AUaP65O4PnLFjoKqslJkCF9B",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mail.for.testbase@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"body\": \"Comment for Created Check\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://testbase.atlassian.net/rest/api/2/issue/TEST-17464/comment",
+					"protocol": "https",
+					"host": [
+						"testbase",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"TEST-17464",
+						"comment"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

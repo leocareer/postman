@@ -1,0 +1,207 @@
+{
+	"info": {
+		"_postman_id": "21ec5a86-5509-4aa4-a493-bcf15d1be4e2",
+		"name": "4_bad_tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23550378"
+	},
+	"item": [
+		{
+			"name": "1. why_block",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"OLD Блок why_block показывает, по чему искали\", function () {",
+							"    pm.expect(jsonData.results[1].why_block).to.deep.eql({",
+							"                    \"field\": \"name\",",
+							"                    \"value\": \"Ромашка\"",
+							"                });",
+							"});",
+							"",
+							"pm.test(\"GOOD Блок why_block показывает, по чему искали\", function () {",
+							"    pm.expect(jsonData.results[1].why_block[0]).to.deep.eql({",
+							"                    \"field\": \"name\",",
+							"                    \"value\": \"Ромашка\"",
+							"                });",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "query",
+							"value": "Ромашка",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/magicsearch",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"magicsearch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. Красавчик — алкоголик!",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"OLD Работает в алкоголиках и тунеяндцах\", function () {",
+							"    pm.expect(jsonData.results[0].companies).to.include({",
+							"                    \"name\": \"Алкоголики и тунеядцы\",",
+							"                    \"id_company\": 15",
+							"                });",
+							"});",
+							"",
+							"pm.test(\"GOOD Работает в алкоголиках и тунеяндцах\", function () {",
+							"    pm.expect(jsonData.results[0].companies).to.deep.include({",
+							"                    \"name\": \"Алкоголики и тунеядцы\",",
+							"                    \"id_company\": 15",
+							"                });",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "query",
+							"value": "test_cu_11@mail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/magicsearch",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"magicsearch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. nested",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"OLD Your test name\", function () {  ",
+							"    pm.expect(jsonData).to.nested.include({'fields.issuelinks[0].outwardIssue.summary': 'Новый баг'});",
+							"});",
+							"",
+							"pm.test(\"GOOD Your test name\", function () {  ",
+							"    pm.expect(jsonData).to.nested.include({'fields.issuelinks[0].outwardIssue.fields.summary': 'Новый баг'});",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "mail.for.testbase@gmail.com",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "AUaP65O4PnLFjoKqslJkCF9B",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://testbase.atlassian.net/rest/api/3/issue/TV-4",
+					"protocol": "https",
+					"host": [
+						"testbase",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"3",
+						"issue",
+						"TV-4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

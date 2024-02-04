@@ -1,0 +1,386 @@
+{
+	"info": {
+		"_postman_id": "df4b8eed-f4b1-4a92-be1a-f4713fea7b10",
+		"name": "3_ObjectsArrays",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23550378"
+	},
+	"item": [
+		{
+			"name": "6_Dadata_Malahov",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Malahov Surname\", function () {",
+							"    let malahov = jsonData.suggestions[2].data.surname;",
+							"    console.log(malahov);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "Token 793d2830a6360a1569c8e7b9dd1afeb2f57ffa77",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"query\": \"Андрей Мал\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+					"protocol": "http",
+					"host": [
+						"suggestions",
+						"dadata",
+						"ru"
+					],
+					"path": [
+						"suggestions",
+						"api",
+						"4_1",
+						"rs",
+						"suggest",
+						"fio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.1_Users_Company",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Company\", function () {",
+							"    let company = jsonData.companies[1].name;",
+							"    console.log(company);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/createuser?email=pump2@mail.com&name=pump2&tasks[0]=12&companies[0]=61&companies[1]=62&companies[2]=63",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"createuser"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "pump2@mail.com"
+						},
+						{
+							"key": "name",
+							"value": "pump2"
+						},
+						{
+							"key": "tasks[0]",
+							"value": "12"
+						},
+						{
+							"key": "companies[0]",
+							"value": "61"
+						},
+						{
+							"key": "companies[1]",
+							"value": "62"
+						},
+						{
+							"key": "companies[2]",
+							"value": "63"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.2_Getuserfull",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Company\", function () {",
+							"    let company = jsonData.companys[1].name;",
+							"    console.log(company);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/getuserfull?email=pump2@mail.com&name=pump2",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"getuserfull"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "pump2@mail.com"
+						},
+						{
+							"key": "name",
+							"value": "pump2"
+						},
+						{
+							"key": "tasks[0]",
+							"value": "12",
+							"disabled": true
+						},
+						{
+							"key": "companies[0]",
+							"value": "61",
+							"disabled": true
+						},
+						{
+							"key": "companies[1]",
+							"value": "62",
+							"disabled": true
+						},
+						{
+							"key": "companies[2]",
+							"value": "63",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8_Reqres_Total&Charles",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Total\", function () {",
+							"    let total = jsonData.total;",
+							"    console.log(total);",
+							"});",
+							"",
+							"pm.test(\"Charles\", function () {",
+							"    let charles = jsonData.data[4].first_name;",
+							"    console.log(charles);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users?page",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9_Jira_GetIssue",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Watchers\", function () {",
+							"    let watchers = jsonData.fields.watches.watchCount;",
+							"    console.log(\"watchers = \" + watchers);",
+							"});",
+							"",
+							"pm.test(\"Статус связи\", function () {",
+							"    let outward = jsonData.fields.issuelinks[0].type.outward;",
+							"    console.log(\"статус связи = \" + outward);",
+							"});",
+							"",
+							"pm.test(\"Сolor Name\", function () {",
+							"    let color = jsonData.fields.subtasks[0].fields.status.statusCategory.colorName;",
+							"    console.log(\"colorName связанной задачи TV-6 = \" + color);",
+							"});",
+							"",
+							"pm.test(\"Флаг на сабтаск\", function () {",
+							"    let flag = jsonData.fields.subtasks[0].fields.issuetype.subtask;",
+							"    console.log(\"задача TV-6 является связанной = \" + flag);",
+							"});",
+							"",
+							"pm.test(\"Автор аттача\", function () {",
+							"    let attach = jsonData.fields.attachment[0].author.displayName;",
+							"    console.log(\"имя автора аттача = \" + attach);",
+							"});",
+							"",
+							"pm.test(\"Саммари сабтаска\", function () {",
+							"    let summary = jsonData.fields.subtasks[0].fields.summary;",
+							"    console.log(\"саммари сабтаска TV-6 = \" + summary);",
+							"});",
+							"",
+							"pm.test(\"Id из statusCategory\", function () {",
+							"    let idsab = jsonData.fields.subtasks[0].fields.status.statusCategory.id;",
+							"    console.log(\"id из statusCategory сабтаска TV-6 = \" + idsab);",
+							"});",
+							"",
+							"pm.test(\"Приоритет сабтаска\", function () {",
+							"    let priority = jsonData.fields.subtasks[0].fields.priority.name;",
+							"    console.log(\"приоритет сабтаска TV-6 = \" + priority);",
+							"});",
+							"",
+							"pm.test(\"timeZone автора коммента\", function () {",
+							"    let timezone = jsonData.fields.comment.comments[0].author.timeZone;",
+							"    console.log(\"timeZone оставившего первый комментарий = \" + timezone);",
+							"});",
+							"",
+							"pm.test(\"Первый комментарий\", function () {",
+							"    let comment = jsonData.fields.comment.comments[0].body.content[0].content[0].text;",
+							"    console.log(\"первый комментарий = \" + comment);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "AUaP65O4PnLFjoKqslJkCF9B",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mail.for.testbase@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://testbase.atlassian.net/rest/api/3/issue/TV-4",
+					"protocol": "https",
+					"host": [
+						"testbase",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"3",
+						"issue",
+						"TV-4"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

@@ -1,0 +1,452 @@
+{
+	"info": {
+		"_postman_id": "31304a03-ad52-4862-9ff2-ebd26024ab88",
+		"name": "#1_first_tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23550378"
+	},
+	"item": [
+		{
+			"name": "Старый VS Новый Postman",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Old test",
+							"tests[\"Тест из старого постмана\"] = responseCode.code === 400;",
+							"",
+							"// New test",
+							"pm.test(\"Тест из нового постмана\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Тест в старом стиле\", function () {",
+							"    pm.response.code === 400;",
+							"});",
+							"",
+							"pm.test(\"Равенство to.be.true\", function () {",
+							"    pm.expect(pm.response.code === 200).to.be.true;",
+							"});",
+							"",
+							"",
+							"const assert = require('assert');",
+							"",
+							"pm.test(\"Status code is 200 с помощью assert\", function () {",
+							"    assert.ok(pm.response.code === 400);",
+							"});",
+							"",
+							"",
+							"console.log(pm.response);",
+							"console.log(responseCode);",
+							"",
+							"console.log(pm.response.code);",
+							"console.log(responseCode.code);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "test_demo_1@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Демо 1",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/doregister",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"doregister"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chai.js",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// SNIPPETS",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([201,200,202]);",
+							"});",
+							"",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"// Test examples (Postman doc)",
+							"pm.test(\"to.include для статус кода не сработает!\", function () {",
+							"    pm.expect(pm.response.code).to.include(\"200\");",
+							"});",
+							"",
+							"pm.test(\"Тест через to.eql строка ≠ число\", function () {",
+							"    pm.expect(pm.response.code).to.eql(\"200\");",
+							"});",
+							"",
+							"pm.test(\"Тест через to.eql\", function () {",
+							"    pm.expect(pm.response.code).to.eql(400);",
+							"});",
+							"",
+							"pm.test(\"Status code через to.be.below\", function () {",
+							"    pm.expect(pm.response.code).to.be.below(210);",
+							"});",
+							"",
+							"pm.test(\"Status code через to.be.above\", function () {",
+							"    pm.expect(pm.response.code).to.be.above(100);",
+							"});",
+							"",
+							"",
+							"// Postman Sandbox API reference doc",
+							"pm.test(\"Status code — info\", function () {",
+							"    pm.response.to.be.info;",
+							"});",
+							"",
+							"pm.test(\"Status code — success\", function () {",
+							"    pm.response.to.be.success;",
+							"});",
+							"",
+							"pm.test(\"Status code — ok\", function () {",
+							"    pm.response.to.be.ok;",
+							"});",
+							"",
+							"",
+							"// Chai official doc",
+							"pm.test(\"Status code is not 400\", function () {",
+							"    pm.response.to.not.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Тест через to.equal\", function () {",
+							"    pm.expect(pm.response.code).to.equal(400);",
+							"});",
+							"",
+							"pm.test(\"Тест через to.deep.equal\", function () {",
+							"    pm.expect(pm.response.code).to.deep.equal(200);",
+							"});",
+							"",
+							"pm.test(\"Тест через to.equal неточное равенство\", function () {",
+							"    pm.expect(pm.response.code).to.equal(\"200\");",
+							"});",
+							"",
+							"pm.test(\"Тест через to.deep.equal неточное равенство\", function () {",
+							"    pm.expect(pm.response.code).to.deep.equal(\"200\");",
+							"});",
+							"",
+							"pm.test(\"Тест через to.deep.include\", function () {",
+							"    pm.expect(pm.response.code).to.deep.include(200);",
+							"});",
+							"",
+							"pm.test(\"Тест через to.be.a string\", function () {",
+							"    pm.expect(pm.response.code).to.be.a('string');",
+							"});",
+							"",
+							"pm.test(\"Тест через to.be.a number\", function () {",
+							"    pm.expect(pm.response.code).to.be.a('number');",
+							"});",
+							"",
+							"",
+							"pm.test(\"Тест через to.be.true\", function () {",
+							"    pm.expect(pm.response.code === 200).to.be.true;",
+							"});",
+							"",
+							"pm.test(\"Тест через to.be.false\", function () {",
+							"    pm.expect(pm.response.code === 204).to.be.false;",
+							"});",
+							"",
+							"pm.test(\"Тест через to.be.ok\", function () {",
+							"    pm.expect(pm.response.code === 200).to.be.ok;",
+							"});",
+							"",
+							"pm.test(\"Тест через to.not.be.ok\", function () {",
+							"    pm.expect(pm.response.code === 400).to.not.be.ok;",
+							"});",
+							"",
+							"pm.test(\"Тест через to.be.null\", function () {",
+							"    pm.expect(pm.response.code).to.be.null;",
+							"});",
+							"",
+							"pm.test(\"Тест через to.not.be.null\", function () {",
+							"    pm.expect(pm.response.code).to.not.be.null;",
+							"});",
+							"",
+							"pm.test(\"Тест через to.not.be.undefined\", function () {",
+							"    pm.expect(pm.response.code).to.not.be.undefined;",
+							"});",
+							"",
+							"pm.test(\"Тест через to.not.be.NaN\", function () {",
+							"    pm.expect(pm.response.code).to.not.be.NaN;",
+							"});",
+							"",
+							"pm.test(\"Тест через to.exist\", function () {",
+							"    pm.expect(pm.response.code).to.exist;",
+							"});",
+							"",
+							"pm.test(\"Тест через to.be.empty — не работает!\", function () {",
+							"    pm.expect(pm.response.code).to.be.empty;",
+							"});",
+							"",
+							"pm.test(\"Status code через to.be.at.least\", function () {",
+							"    pm.expect(pm.response.code).to.be.at.least(200);",
+							"});",
+							"",
+							"pm.test(\"Status code через to.be.at.most\", function () {",
+							"    pm.expect(pm.response.code).to.be.at.most(200);",
+							"});",
+							"",
+							"pm.test(\"Status code через to.be.within\", function () {",
+							"    pm.expect(pm.response.code).to.be.within(200, 300);",
+							"});",
+							"",
+							"pm.test(\"Status code — число (instanceof)\", function () {",
+							"    pm.expect(pm.response.code).to.be.an.instanceof(Number);",
+							"});",
+							"",
+							"pm.test(\"Status code через to.match\", function () {",
+							"    pm.expect(pm.response.code).to.match(/^200/);",
+							"});",
+							"",
+							"pm.test(\"Status code через to.have.string\", function () {",
+							"    pm.expect(pm.response.code).to.have.string(\"OK\");",
+							"});",
+							"",
+							"pm.test(\"Status code через to.be.closeTo\", function () {",
+							"    pm.expect(pm.response.code).to.be.closeTo(200, 1);",
+							"});",
+							"",
+							"pm.test(\"Status code через to.be.finite\", function () {",
+							"    pm.expect(pm.response.code).to.not.be.finite;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "test_demo_1@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Демо 1",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/doregister",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"doregister"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Node.js",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"const assert = require('assert');",
+							"",
+							"pm.test(\"Тест через assert.ok\", function () {",
+							"    assert.ok(pm.response.code === 200);",
+							"});",
+							"",
+							"pm.test(\"Тест через assert\", function () {",
+							"    assert(pm.response.code === 200);",
+							"});",
+							"",
+							"pm.test(\"Тест через assert.deepEqual\", function () {",
+							"    assert.deepEqual(pm.response.code, 200);",
+							"});",
+							"",
+							"pm.test(\"Тест через assert.deepStrictEqual\", function () {",
+							"    assert.deepStrictEqual(pm.response.code, 200);",
+							"});",
+							"",
+							"pm.test(\"Тест через assert.deepEqual приведение типов\", function () {",
+							"    assert.deepEqual(pm.response.code, \"200\");",
+							"});",
+							"",
+							"pm.test(\"Тест через assert.deepStrictEqual приведение типов\", function () {",
+							"    assert.deepStrictEqual(pm.response.code, \"200\");",
+							"});",
+							"",
+							"pm.test(\"Тест через assert.equal\", function () {",
+							"    assert.equal(pm.response.code, 200);",
+							"});",
+							"",
+							"pm.test(\"Тест через assert.strictEqual\", function () {",
+							"    assert.strictEqual(pm.response.code, 200);",
+							"});",
+							"",
+							"pm.test(\"Тест через assert.equal приведение типов\", function () {",
+							"    assert.equal(pm.response.code, \"200\");",
+							"});",
+							"",
+							"pm.test(\"Тест через assert.strictEqual приведение типов\", function () {",
+							"    assert.strictEqual(pm.response.code, \"200\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "test_demo_1@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Демо 1",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/doregister",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"doregister"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Node.js Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Тест через assert.ok\", function () {",
+							"    pm.assert.isBelow(pm.response.code,200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "test_demo_1@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Демо 1",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/doregister",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"doregister"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "57e8b29c-4bb4-4088-8f20-e777f26cde94",
+		"name": "2_MagicSearch_Director",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23550378"
+	},
+	"item": [
+		{
+			"name": "user director",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/doregister?email=direct13@mail.com&name=Лунатиков1&password=direct12",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"doregister"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "direct13@mail.com"
+						},
+						{
+							"key": "name",
+							"value": "Лунатиков1"
+						},
+						{
+							"key": "password",
+							"value": "direct12"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4_DirectorCheck",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"DirectorCheck\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([231,232,235]);",
+							"});",
+							"",
+							"pm.test(\"DirectorCheck\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([230,233,234]);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "query",
+							"value": "Лунатиков",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/magicsearch",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"magicsearch"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

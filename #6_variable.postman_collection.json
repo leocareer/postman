@@ -1,0 +1,1610 @@
+{
+	"info": {
+		"_postman_id": "85e1ea56-4344-4cf5-b5d2-bcf198798534",
+		"name": "#6_variable",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23550378"
+	},
+	"item": [
+		{
+			"name": "1_users_register_update",
+			"item": [
+				{
+					"name": "Создание пользователя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Локальная переменная\r",
+									"\r",
+									"// to set a value\r",
+									"pm.variables.set(\"key\", \"локальная\");\r",
+									"\r",
+									"// to retrieve a value\r",
+									"var local = pm.variables.get(\"key\");\r",
+									"\r",
+									"var local2 = \"не менее локальная\";\r",
+									"\r",
+									"// Нельзя вызвать через гет не установленную через сеттер переменную\r",
+									"local_get_simple = pm.variables.get(\"local2\");\r",
+									"\r",
+									"\r",
+									"console.log(\"Первый запрос, тест\");\r",
+									"console.log(local);\r",
+									"console.log(local2);\r",
+									"\r",
+									"console.log(local_get_simple);\r",
+									"\r",
+									"/*\r",
+									"pm.test(\"Самый простой пример использования переменной локальной\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.type).to.eql(\"error\");\r",
+									"});\r",
+									"*/\r",
+									"\r",
+									"\r",
+									"console.log(Math.random());\r",
+									"console.log(Math.floor(Math.random() * 100));\r",
+									"\r",
+									"\r",
+									"console.log(\"Переменная энвайромента\");\r",
+									"pm.environment.set(\"test_env\", \"Строковое значение энвайромент переменной\");"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test_video_133@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "видео 133",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Заполняем все поля",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//console.log(local);",
+									"//console.log(local2);",
+									"",
+									"console.log(\"Второй запрос, тест\");",
+									"console.log(pm.variables.get(\"name_count\"));",
+									"// Так не сработает",
+									"// console.log(name_count);",
+									"console.log(x);",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(\"Перед запросом\");",
+									"",
+									"//name_count = Math.floor(Math.random() * 100);",
+									"",
+									"pm.variables.set(\"name_count\", Math.floor(Math.random() * 100));",
+									"x = 100;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test_video_133@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "hobby",
+									"value": "Стрельба из лука, Настолки",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Красавчик {{$randomBoolean}}",
+									"type": "text"
+								},
+								{
+									"key": "name1",
+									"value": "имечко",
+									"type": "text"
+								},
+								{
+									"key": "surname1",
+									"value": "Ивано",
+									"type": "text"
+								},
+								{
+									"key": "fathername1",
+									"value": "Петров",
+									"type": "text"
+								},
+								{
+									"key": "cat",
+									"value": "Маруся",
+									"type": "text"
+								},
+								{
+									"key": "dog",
+									"value": "Ушастый",
+									"type": "text"
+								},
+								{
+									"key": "parrot",
+									"value": "Васька",
+									"type": "text"
+								},
+								{
+									"key": "cavy",
+									"value": "Кто ты?",
+									"type": "text"
+								},
+								{
+									"key": "hamster",
+									"value": "Хомяк",
+									"type": "text"
+								},
+								{
+									"key": "squirrel",
+									"value": "Белая горячка к нам пришла",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "333 33 33",
+									"type": "text"
+								},
+								{
+									"key": "adres",
+									"value": "адрес 1",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "m",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "01.01.1900",
+									"type": "text"
+								},
+								{
+									"key": "date_start",
+									"value": "11.11.2000",
+									"type": "text"
+								},
+								{
+									"key": "inn",
+									"value": "123456789012",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/fullupdateuser",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"fullupdateuser"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2_doregister_10_times_for_1_click",
+			"item": [
+				{
+					"name": "Создание пользователя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test_video_{{$randomInt}}@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "видео {{$randomInt}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3_random_data",
+			"item": [
+				{
+					"name": "Создание пользователя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "any",
+								"value": "{{$randomInt}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test_video_{{$guid}}@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "видео {{$randomInt}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get issue",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"console.log(jsonData);",
+									"",
+									"pm.test(\"Связь с основным багом\", function () {",
+									"    pm.expect(jsonData).to.nested.include({'fields.issuelinks[0].inwardIssue.summary': \"Основной баг\"});",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "r9I4EaIxc04ozGZHYSxtE1CE",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "mail.for.testbase@yandex.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://testbase.atlassian.net/rest/api/3/issue/TV-{{$randomInt}}",
+							"protocol": "https",
+							"host": [
+								"testbase",
+								"atlassian",
+								"net"
+							],
+							"path": [
+								"rest",
+								"api",
+								"3",
+								"issue",
+								"TV-{{$randomInt}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "4_user_form_file",
+			"item": [
+				{
+					"name": "Создание пользователя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"var X = jsonData.name;",
+									"var Y = data.name;",
+									"",
+									"console.log(jsonData.name);",
+									"console.log(data.name);",
+									"console.log(pm.iterationData.get(\"email\"));",
+									"",
+									"pm.test(\"name взят из файла\", function () {",
+									"    pm.expect(X).to.eql(Y);",
+									"});",
+									"",
+									"pm.test(\"name взят из файла\", function () {",
+									"    pm.expect(jsonData.name).to.eql(data.name);",
+									"});",
+									"",
+									"pm.test(\"email взят из файла\", function () {",
+									"    pm.expect(jsonData.email).to.eql(pm.iterationData.get(\"email\"));",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "any",
+								"value": "{{$randomInt}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "{{email}}",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "{{name}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "5_user_form_file",
+			"item": [
+				{
+					"name": "Создание пользователя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"var X = jsonData.name;",
+									"var Y = data.name;",
+									"",
+									"console.log(jsonData.name);",
+									"console.log(data.name);",
+									"console.log(pm.iterationData.get(\"email\"));",
+									"",
+									"pm.test(\"name взят из файла\", function () {",
+									"    pm.expect(X).to.eql(Y);",
+									"});",
+									"",
+									"pm.test(\"name взят из файла\", function () {",
+									"    pm.expect(jsonData.name).to.eql(data.name);",
+									"});",
+									"",
+									"pm.test(\"email взят из файла\", function () {",
+									"    pm.expect(jsonData.email).to.eql(pm.iterationData.get(\"email\"));",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "any",
+								"value": "{{$randomInt}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "{{email}}",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "{{name}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "6_local_var",
+			"item": [
+				{
+					"name": "Создание пользователя 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"",
+									"console.log(x);",
+									"",
+									"",
+									"pm.variables.set(\"local\", jsonData.message);",
+									"",
+									"console.log(pm.variables.get(\"local\"));",
+									"console.log(pm.variables.get(\"x\"));",
+									"console.log(x);",
+									"",
+									"console.log(pm.environment.get(\"variable_key\"));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"x = 3;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "{{email}}",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "{{name}} ",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"x = 3;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "ooo150@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "имя {{x}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "7_data_var",
+			"item": [
+				{
+					"name": "Создание пользователя 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(data.email);",
+									"console.log(pm.iterationData.get(\"email\"));",
+									"console.log(pm.variables.get(\"email\"));",
+									"",
+									"em = pm.iterationData.get(\"email\");",
+									"console.log(em);",
+									"",
+									"",
+									"// Это универсальная запись, работает для ЛЮБОЙ переменной, установленной через сеттер",
+									"console.log(pm.variables.get(\"email\"));",
+									"",
+									"pm.variables.set(\"email\", \"local_email\");",
+									"console.log(pm.variables.get(\"email\"));",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "{{email}}",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "{{name}} ",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(data.email);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "ooo150@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "имя",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "8_env_var",
+			"item": [
+				{
+					"name": "Создание пользователя 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"/*",
+									"console.log(pm.environment.get(\"Строка из GUI\"));",
+									"",
+									"pm.environment.set(\"variable_key\", [5, 7, 9]);",
+									"console.log(pm.environment.get(\"variable_key\"));",
+									"console.log(pm.variables.get(\"variable_key\"));",
+									"",
+									"pm.variables.set(\"variable_key\", \"локальное значение\");",
+									"console.log(pm.variables.get(\"variable_key\"));",
+									"",
+									"console.log(pm.variables.get(\"email\"));",
+									"*/",
+									"",
+									"pm.environment.set(\"x\", 1);",
+									"console.log(pm.environment.get(\"x\"));",
+									"pm.environment.unset(\"x\");",
+									"console.log(pm.environment.get(\"x\"));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"email\", \"env email\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "{{email}}",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "{{name}} ",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(data.email);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "ooo154@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "имя {{Строка из GUI}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "9_coll_var",
+			"item": [
+				{
+					"name": "Создание пользователя 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.variables.get(\"x\"));",
+									"",
+									"pm.environment.set(\"x\", \"variable_value\");",
+									"console.log(pm.variables.get(\"x\"));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test+{{$guid}}@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Красавчик {{$randomInt}} {{x}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test+{{$guid}}@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Красавчик {{$randomInt}} {{x}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "10_global_var",
+			"item": [
+				{
+					"name": "Создание пользователя 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.variables.get(\"x\"));",
+									"",
+									"pm.environment.set(\"x\", \"variable_value\");",
+									"console.log(pm.variables.get(\"x\"));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test+{{$guid}}@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Красавчик {{$randomInt}} {{x}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.variables.get(\"xxx\"));",
+									"console.log(pm.globals.get(\"xxx\"));",
+									"",
+									"",
+									"pm.globals.set(\"key\", \"global\");",
+									"console.log(pm.variables.get(\"key\"));",
+									"pm.environment.set(\"key\", \"environment\");",
+									"console.log(pm.variables.get(\"key\"));",
+									"console.log(pm.globals.get(\"key\"));",
+									"",
+									"pm.globals.unset(\"xxx\");",
+									"console.log(pm.globals.get(\"xxx\"));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test+{{$guid}}@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Красавчик {{$randomInt}} {{x}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.variables.get(\"xxx\"));",
+									"console.log(pm.globals.get(\"xxx\"));",
+									"",
+									"",
+									"pm.globals.set(\"key\", \"global\");",
+									"console.log(pm.variables.get(\"key\"));",
+									"pm.environment.set(\"key\", \"environment\");",
+									"console.log(pm.variables.get(\"key\"));",
+									"console.log(pm.globals.get(\"key\"));",
+									"",
+									"pm.globals.unset(\"xxx\");",
+									"console.log(pm.globals.get(\"xxx\"));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test+{{$guid}}@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Красавчик {{$randomInt}} {{x}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "11_var_or_string",
+			"item": [
+				{
+					"name": "Регистрация",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"",
+									"pm.test(\"Your test name\", function () {",
+									"    pm.expect(jsonData.message).to.eql(\" email \" + pm.globals.get(\"email\") + \" уже есть в базе\");",
+									"});",
+									"",
+									"console.log(\"Я стр\" + \"ока\" + \" 7\");",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "{{email}}",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Красавчик 1666",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "12_reuse_variable",
+			"item": [
+				{
+					"name": "1. Регистрация пользователя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.globals.set(\"email\", pm.response.json().email);",
+									"",
+									"console.log(pm.globals.get(\"email\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test+{{$randomInt}}@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Красавчик {{$randomInt}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. Обновляем пользователю dog",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "{{email}}"
+								},
+								{
+									"key": "field",
+									"value": "dog",
+									"type": "text"
+								},
+								{
+									"key": "value",
+									"value": "Новое значение",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/useronefield",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"useronefield"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,2078 @@
+{
+	"info": {
+		"_postman_id": "d3176efe-6d36-4d65-aafc-964f38a866d9",
+		"name": "5_ServerResponse_2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23550378"
+	},
+	"item": [
+		{
+			"name": "16_GetIssue",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"fixVersions type\", function () {",
+							"    pm.expect(jsonData.fields.fixVersions).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"watches type\", function () {",
+							"    pm.expect(jsonData.fields.watches).to.be.an('object');",
+							"});",
+							"",
+							"pm.test(\"workratio type\", function () {",
+							"    pm.expect(jsonData.fields.workratio).to.be.a('number');",
+							"});",
+							"",
+							"pm.test(\"issuelinks type\", function () {",
+							"    pm.expect(jsonData.fields.issuelinks).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"FAIL fixVersions type\", function () {",
+							"    pm.expect(jsonData.fields.fixVersions).to.be.an('object');",
+							"});",
+							"",
+							"pm.test(\"FAIL watches type\", function () {",
+							"    pm.expect(jsonData.fields.watches).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"FAIL workratio type\", function () {",
+							"    pm.expect(jsonData.fields.workratio).to.be.a('array');",
+							"});",
+							"",
+							"pm.test(\"FAIL issuelinks type\", function () {",
+							"    pm.expect(jsonData.fields.issuelinks).to.be.an('object');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "AUaP65O4PnLFjoKqslJkCF9B",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mail.for.testbase@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://testbase.atlassian.net/rest/api/3/issue/TV-4",
+					"protocol": "https",
+					"host": [
+						"testbase",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"3",
+						"issue",
+						"TV-4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "17_Cats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"function Cat (name, year) {",
+							"    this.name = name;",
+							"    this.year = year;",
+							"};",
+							"",
+							"let pussy = new Cat(\"Pussy\", 1);",
+							"",
+							"pm.test(\"Pussy is object\", function () {",
+							"    pm.expect(pussy).to.be.an.instanceof(Object);",
+							"});",
+							"",
+							"pm.test(\"Pussy is cat\", function () {",
+							"    pm.expect(pussy).to.be.an.instanceof(Cat);",
+							"});",
+							"",
+							"pm.test(\"FAIL Pussy is object\", function () {",
+							"    pm.expect(pussy).to.be.an.instanceof(Array);",
+							"});",
+							"",
+							"pm.test(\"FAIL Pussy is cat\", function () {",
+							"    pm.expect(pussy).to.be.an.instanceof(Array);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "paper1@mail.com",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "paper1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/getuserfull",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"getuserfull"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "paper1@mail.com",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "paper1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "18_Malahov",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Malahov with array\", function () {",
+							"    pm.expect(jsonData.suggestions).to.be.an('array').that.deep.includes( {",
+							"            \"value\": \"Андрей Малахов\",",
+							"            \"unrestricted_value\": \"Андрей Малахов\",",
+							"            \"data\": {",
+							"                \"surname\": \"Малахов\",",
+							"                \"name\": \"Андрей\",",
+							"                \"patronymic\": null,",
+							"                \"gender\": \"MALE\",",
+							"                \"source\": null,",
+							"                \"qc\": \"0\"",
+							"            }",
+							"        });",
+							"});",
+							"",
+							"pm.test(\"alahov with string\", function () {",
+							"    pm.expect(jsonData.suggestions[2].data.surname).to.be.an('String').that.deep.includes(\"Малахов\");",
+							"});",
+							"",
+							"pm.test(\"FAIL Malahov with array\", function () {",
+							"    pm.expect(jsonData.suggestions).to.be.an('String').that.deep.includes( {",
+							"            \"value\": \"Андрей Малахов\",",
+							"            \"unrestricted_value\": \"Андрей Малахов\",",
+							"            \"data\": {",
+							"                \"surname\": \"Малахов\",",
+							"                \"name\": \"Андрей\",",
+							"                \"patronymic\": null,",
+							"                \"gender\": \"MALE\",",
+							"                \"source\": null,",
+							"                \"qc\": \"0\"",
+							"            }",
+							"        });",
+							"});",
+							"",
+							"pm.test(\"FAIL Malahov with string\", function () {",
+							"    pm.expect(jsonData.suggestions[2].data.surname).to.be.an('array').that.deep.includes(\"Малахов\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "Token 793d2830a6360a1569c8e7b9dd1afeb2f57ffa77",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"query\": \"Андрей Мал\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+					"protocol": "http",
+					"host": [
+						"suggestions",
+						"dadata",
+						"ru"
+					],
+					"path": [
+						"suggestions",
+						"api",
+						"4_1",
+						"rs",
+						"suggest",
+						"fio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "19_230 nobody",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"230 nobody\", function () {",
+							"    pm.response.to.have.status(230);",
+							"    pm.expect(jsonData.foundCount === 0).to.be.true;",
+							"    pm.expect(jsonData.results).that.is.empty;",
+							"",
+							"});",
+							"",
+							"pm.test(\"FAIL 230 nobody\", function () {",
+							"    pm.response.to.have.status(230);",
+							"    pm.expect(jsonData.foundCount === 1).to.be.true;",
+							"    pm.expect(jsonData.results).to.have.lengthOf(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "query",
+							"value": "qwqwqwqw",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/magicsearch",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"magicsearch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "19_231 one user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"231 one user\", function () {",
+							"    pm.response.to.have.status(231);",
+							"    pm.expect(jsonData.foundCount === 1).to.be.true;",
+							"    pm.expect(jsonData.results).to.have.lengthOf(1);",
+							"});",
+							"",
+							"pm.test(\"FAIL 231 one user\", function () {",
+							"    pm.response.to.have.status(231);",
+							"    pm.expect(jsonData.foundCount === 2).to.be.true;",
+							"    pm.expect(jsonData.results).to.have.lengthOf(2);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "query",
+							"value": "paper",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/magicsearch",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"magicsearch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "19_232 more than one users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"232 more than one users\", function () {",
+							"    pm.response.to.have.status(232);",
+							"    pm.expect(jsonData.foundCount).to.be.above(1);",
+							"    pm.expect(jsonData.results).to.have.lengthOf.above(1);",
+							"});",
+							"",
+							"pm.test(\"FAIL 232 more than one users\", function () {",
+							"    pm.response.to.have.status(232);",
+							"    pm.expect(jsonData.foundCount).to.be.above(2);",
+							"    pm.expect(jsonData.results).to.have.lengthOf.above(2);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "query",
+							"value": "tomato",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/magicsearch",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"magicsearch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "19_233 one company",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"233 one company\", function () {",
+							"    pm.response.to.have.status(233);",
+							"    pm.expect(jsonData.foundCount).to.eql(1);",
+							"    pm.expect(jsonData.results).to.have.lengthOf(1);",
+							"});",
+							"",
+							"pm.test(\"FAIL 233 one company\", function () {",
+							"    pm.response.to.have.status(233);",
+							"    pm.expect(jsonData.foundCount).to.eql(2);",
+							"    pm.expect(jsonData.results).to.have.lengthOf(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "query",
+							"value": "cucumbershop1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/magicsearch",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"magicsearch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "19_234 more than one companies",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"234 more than one companies\", function () {",
+							"    pm.response.to.have.status(234);",
+							"    pm.expect(jsonData.foundCount).to.be.least(2);",
+							"    pm.expect(jsonData.results).to.have.lengthOf.least(2);",
+							"});",
+							"",
+							"pm.test(\"FAIL 234 more than one companies\", function () {",
+							"    pm.response.to.have.status(234);",
+							"    pm.expect(jsonData.foundCount).to.be.least(3);",
+							"    pm.expect(jsonData.results).to.have.lengthOf.least(3);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "query",
+							"value": "aubergineshop",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/magicsearch",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"magicsearch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "19_235 some users and companies",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"235 some users and companies\", function () {",
+							"    pm.response.to.have.status(235);",
+							"    pm.expect(jsonData.foundCount).to.be.above(2);",
+							"    pm.expect(jsonData.results).to.have.lengthOf.above(2);",
+							"});",
+							"",
+							"pm.test(\"FAIL 235 some users and companies\", function () {",
+							"    pm.response.to.have.status(235);",
+							"    pm.expect(jsonData.foundCount).to.be.above(3);",
+							"    pm.expect(jsonData.results).to.have.lengthOf.above(3);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "query",
+							"value": "eggplant",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/magicsearch",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"magicsearch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "20_455 no query",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"455 status\", function () {",
+							"    pm.response.to.have.status(455);",
+							"});",
+							"",
+							"pm.test(\"455 message\", function () {",
+							"    pm.expect(jsonData.message === \"Не найден обязательный параметр query\").to.be.true;",
+							"});",
+							"",
+							"pm.test(\"455 code_error\", function () {",
+							"    pm.expect(jsonData.code_error == pm.response.code).to.be.true;",
+							"});",
+							"",
+							"pm.test(\"FAIL 455 status\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"FAIL 455 message\", function () {",
+							"    pm.expect(jsonData.message === \"Не найден обязательный параметр quer\").to.be.true;",
+							"});",
+							"",
+							"pm.test(\"FAIL 455 code_error\", function () {",
+							"    pm.expect(jsonData.message == pm.response.code).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "query",
+							"value": "иван",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/magicsearch",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"magicsearch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "20_456 more than 1000 symbols",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"456 more than 1000 symbols\", function () {",
+							"    pm.response.to.have.status(456);",
+							"    pm.expect(jsonData.message === \"Длина запроса не должна превышать 1000 символов\").to.be.true;",
+							"    pm.expect(jsonData.code_error === \"456\").to.be.true;",
+							"});",
+							"",
+							"pm.test(\"FAIL 456 more than 1000 symbols\", function () {",
+							"    pm.response.to.have.status(455);",
+							"    pm.expect(jsonData.message === \"Длина запроса не должна превышать 1000 символов\").to.be.true;",
+							"    pm.expect(jsonData.code_error === \"456\").to.be.true;",
+							"});",
+							"",
+							"pm.test(\"FAIL 456 more than 1000 symbols\", function () {",
+							"    pm.response.to.have.status(456);",
+							"    pm.expect(jsonData.message === \"Длина запроса не должна превышать 1000 символо\").to.be.true;",
+							"    pm.expect(jsonData.code_error === \"456\").to.be.true;",
+							"});",
+							"",
+							"pm.test(\"FAIL 456 more than 1000 symbols\", function () {",
+							"    pm.response.to.have.status(456);",
+							"    pm.expect(jsonData.message === \"Длина запроса не должна превышать 1000 символов\").to.be.true;",
+							"    pm.expect(jsonData.code_error === \"455\").to.be.true;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "query",
+							"value": "Лишь ключевые особенности структуры проекта являются только методом политического участия и описаны максимально подробно. Также как внедрение современных методик не даёт нам иного выбора, кроме определения экспериментов, поражающих по своей масштабности и грандиозности. Противоположная точка зрения подразумевает, что активно развивающиеся страны третьего мира представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом и должны быть объединены в целые кластеры себе подобных. Разнообразный и богатый опыт говорит нам, что социально-экономическое развитие говорит о возможностях вывода текущих активов. Противоположная точка зрения подразумевает, что предприниматели в сети интернет представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом и должны быть своевременно верифицированы. Являясь всего лишь частью общей картины, базовые сценарии поведения пользователей неоднозначны и будут своевременно верифицированы.\n\nОднозначно, предприниматели в сети интернет, которые",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/magicsearch",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"magicsearch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "20_457 bad partyType",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"457 bad partyType\", function () {",
+							"    pm.response.to.have.status(457);",
+							"    pm.expect(jsonData.message === \"Параметр partyType может принимать только значения: ALL,USER, COMPANY\").to.be.true;",
+							"    pm.expect(jsonData.code_error === \"457\").to.be.true;",
+							"});",
+							"",
+							"pm.test(\"FAIL 457 bad partyType\", function () {",
+							"    pm.response.to.have.status(400);",
+							"    pm.expect(jsonData.message === \"Параметр partyType может принимать только значения: ALL,USER, COMPANY\").to.be.true;",
+							"    pm.expect(jsonData.code_error === \"457\").to.be.true;",
+							"});",
+							"",
+							"pm.test(\"FAIL 457 bad partyType\", function () {",
+							"    pm.response.to.have.status(457);",
+							"    pm.expect(jsonData.message === \"Параметр partyType может принимать только значения: ALL,USER, COMPAN\").to.be.true;",
+							"    pm.expect(jsonData.code_error === \"457\").to.be.true;",
+							"});",
+							"",
+							"pm.test(\"FAIL 457 bad partyType\", function () {",
+							"    pm.response.to.have.status(457);",
+							"    pm.expect(jsonData.message === \"Параметр partyType может принимать только значения: ALL,USER, COMPANY\").to.be.true;",
+							"    pm.expect(jsonData.code_error === \"456\").to.be.true;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "query",
+							"value": "кукурузка",
+							"type": "text"
+						},
+						{
+							"key": "partyType",
+							"value": "qwe",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/magicsearch",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"magicsearch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "20_458 bad taskStatus",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"458 bad taskStatus\", function () {",
+							"    pm.response.to.have.status(458);",
+							"    pm.expect(jsonData.message === \"Параметр taskStatus может принимать только значения: ALL, ACTUAL, COMPLETE, FAIL\").to.be.true;",
+							"    pm.expect(jsonData.code_error === \"458\").to.be.true;",
+							"});",
+							"",
+							"pm.test(\"FAIL 458 bad taskStatus\", function () {",
+							"    pm.response.to.have.status(400);",
+							"    pm.expect(jsonData.message === \"Параметр taskStatus может принимать только значения: ALL, ACTUAL, COMPLETE, FAIL\").to.be.true;",
+							"    pm.expect(jsonData.code_error === \"458\").to.be.true;",
+							"});",
+							"",
+							"pm.test(\"FAIL 458 bad taskStatus\", function () {",
+							"    pm.response.to.have.status(458);",
+							"    pm.expect(jsonData.message === \"Параметр taskStatus может принимать только значения: ALL, ACTUAL, COMPLETE, FAI\").to.be.true;",
+							"    pm.expect(jsonData.code_error === \"458\").to.be.true;",
+							"});",
+							"",
+							"pm.test(\"FAIL 458 bad taskStatus\", function () {",
+							"    pm.response.to.have.status(458);",
+							"    pm.expect(jsonData.message === \"Параметр taskStatus может принимать только значения: ALL, ACTUAL, COMPLETE, FAIL\").to.be.true;",
+							"    pm.expect(jsonData.code_error === \"400\").to.be.true;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "query",
+							"value": "кукурузка",
+							"type": "text"
+						},
+						{
+							"key": "taskStatus",
+							"value": "qwe",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/magicsearch",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"magicsearch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "20_459 bad include",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"459 bad include\", function () {",
+							"    pm.response.to.have.status(459);",
+							"    pm.expect(jsonData.message === \"Параметр include может принимать только значения: ALL, USER, COMPANY, TASK, WHY\").to.be.true;",
+							"    pm.expect(jsonData.code_error === \"459\").to.be.true;",
+							"});",
+							"",
+							"pm.test(\"FAIL 459 bad include\", function () {",
+							"    pm.response.to.have.status(400);",
+							"    pm.expect(jsonData.message === \"Параметр include может принимать только значения: ALL, USER, COMPANY, TASK, WHY\").to.be.true;",
+							"    pm.expect(jsonData.code_error === \"459\").to.be.true;",
+							"});",
+							"",
+							"pm.test(\"FAIL 459 bad include\", function () {",
+							"    pm.response.to.have.status(459);",
+							"    pm.expect(jsonData.message === \"Параметр include может принимать только значения: ALL, USER, COMPANY, TASK, WH\").to.be.true;",
+							"    pm.expect(jsonData.code_error === \"459\").to.be.true;",
+							"});",
+							"",
+							"pm.test(\"FAIL 459 bad include\", function () {",
+							"    pm.response.to.have.status(459);",
+							"    pm.expect(jsonData.message === \"Параметр include может принимать только значения: ALL, USER, COMPANY, TASK, WHY\").to.be.true;",
+							"    pm.expect(jsonData.code_error === \"400\").to.be.true;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "query",
+							"value": "кукурузка",
+							"type": "text"
+						},
+						{
+							"key": "include",
+							"value": "qwe",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/magicsearch",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"magicsearch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "21_455 no query",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"const assert = require('assert');",
+							"",
+							"pm.test(\"455 no query\", function () {",
+							"    pm.response.to.have.status(455);",
+							"    assert.ok(jsonData.code_error === \"455\");",
+							"});",
+							"",
+							"pm.test(\"FAIL 455 no query\", function () {",
+							"    pm.response.to.have.status(456);",
+							"    assert.ok(jsonData.code_error === \"455\");",
+							"});",
+							"",
+							"pm.test(\"FAIL 455 no query\", function () {",
+							"    pm.response.to.have.status(455);",
+							"    assert.ok(jsonData.code_error === \"456\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "query",
+							"value": "иван",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/magicsearch",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"magicsearch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "21_456 more than 1000 symbols",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"const assert = require('assert');",
+							"",
+							"pm.test(\"456 more than 1000 symbols\", function () {",
+							"    pm.response.to.have.status(456);",
+							"    assert.ok(jsonData.code_error === \"456\");",
+							"});",
+							"",
+							"pm.test(\"FAIL 456 more than 1000 symbols\", function () {",
+							"    pm.response.to.have.status(455);",
+							"    assert.ok(jsonData.code_error === \"456\");",
+							"});",
+							"",
+							"pm.test(\"FAIL 456 more than 1000 symbols\", function () {",
+							"    pm.response.to.have.status(456);",
+							"    assert.ok(jsonData.code_error === \"455\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "query",
+							"value": "Лишь ключевые особенности структуры проекта являются только методом политического участия и описаны максимально подробно. Также как внедрение современных методик не даёт нам иного выбора, кроме определения экспериментов, поражающих по своей масштабности и грандиозности. Противоположная точка зрения подразумевает, что активно развивающиеся страны третьего мира представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом и должны быть объединены в целые кластеры себе подобных. Разнообразный и богатый опыт говорит нам, что социально-экономическое развитие говорит о возможностях вывода текущих активов. Противоположная точка зрения подразумевает, что предприниматели в сети интернет представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом и должны быть своевременно верифицированы. Являясь всего лишь частью общей картины, базовые сценарии поведения пользователей неоднозначны и будут своевременно верифицированы.\n\nОднозначно, предприниматели в сети интернет, которые",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/magicsearch",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"magicsearch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "21_457 bad partyType",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"const assert = require('assert');",
+							"",
+							"pm.test(\"457 bad partyType\", function () {",
+							"    pm.response.to.have.status(457);",
+							"    assert.ok(jsonData.code_error === \"457\");",
+							"});",
+							"",
+							"pm.test(\"FAIL 457 bad partyType\", function () {",
+							"    pm.response.to.have.status(457);",
+							"    assert.ok(jsonData.code_error === \"400\");",
+							"});",
+							"",
+							"pm.test(\"FAIL 457 bad partyType\", function () {",
+							"    pm.response.to.have.status(400);",
+							"    assert.ok(jsonData.code_error === \"457\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "query",
+							"value": "кукурузка",
+							"type": "text"
+						},
+						{
+							"key": "partyType",
+							"value": "qwe",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/magicsearch",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"magicsearch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "21_458 bad taskStatus",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"const assert = require('assert');",
+							"",
+							"pm.test(\"458 bad taskStatus\", function () {",
+							"    pm.response.to.have.status(458);",
+							"    assert.ok(jsonData.code_error === \"458\");",
+							"});",
+							"",
+							"pm.test(\"FAIL 458 bad taskStatus\", function () {",
+							"    pm.response.to.have.status(400);",
+							"    assert.ok(jsonData.code_error === \"458\");",
+							"});",
+							"",
+							"pm.test(\"FAIL 458 bad taskStatus\", function () {",
+							"    pm.response.to.have.status(458);",
+							"    assert.ok(jsonData.code_error === \"400\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "query",
+							"value": "кукурузка",
+							"type": "text"
+						},
+						{
+							"key": "taskStatus",
+							"value": "qwe",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/magicsearch",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"magicsearch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "21_459 bad include",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"const assert = require('assert');",
+							"",
+							"pm.test(\"459 bad include\", function () {",
+							"    pm.response.to.have.status(459);",
+							"    assert.ok(jsonData.code_error === \"459\");",
+							"});",
+							"",
+							"pm.test(\"FAIL 459 bad include\", function () {",
+							"    pm.response.to.have.status(400);",
+							"    assert.ok(jsonData.code_error === \"459\");",
+							"});",
+							"",
+							"pm.test(\"FAIL 459 bad include\", function () {",
+							"    pm.response.to.have.status(459);",
+							"    assert.ok(jsonData.code_error === \"400\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "query",
+							"value": "кукурузка",
+							"type": "text"
+						},
+						{
+							"key": "include",
+							"value": "qwe",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/magicsearch",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"magicsearch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "22_Malahov",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = xml2Json(responseBody);",
+							"",
+							"pm.test(\"Malahov is banana\", function () {",
+							"    pm.expect(jsonData.SuggestResponse.suggestions).to.deep.include({",
+							"            value: \"Андрей Малахов\",",
+							"            unrestricted_value: \"Андрей Малахов\",",
+							"            data: {",
+							"                surname: \"Малахов\",",
+							"                name: \"Андрей\",",
+							"                patronymic: \"\",",
+							"                gender: \"MALE\",",
+							"                source: \"\",",
+							"                qc: \"0\"",
+							"            }",
+							"        });",
+							"});",
+							"",
+							"pm.test(\"FAIL Malahov is banana\", function () {",
+							"    pm.expect(jsonData.SuggestResponse.suggestions).to.deep.include({",
+							"            value: \"Андрей Малахов\",",
+							"            unrestricted_value: \"Андрей Малахов\",",
+							"            data: {",
+							"                surname: \"Мал\",",
+							"                name: \"Андрей\",",
+							"                patronymic: \"\",",
+							"                gender: \"MALE\",",
+							"                source: \"\",",
+							"                qc: \"0\"",
+							"            }",
+							"        });",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "Token 793d2830a6360a1569c8e7b9dd1afeb2f57ffa77",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<req>\n\t<query>Андрей Мал</query>\n</req>\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+					"protocol": "http",
+					"host": [
+						"suggestions",
+						"dadata",
+						"ru"
+					],
+					"path": [
+						"suggestions",
+						"api",
+						"4_1",
+						"rs",
+						"suggest",
+						"fio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "23_GetIssue",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Server\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Server\")).to.include(\"Edge\");",
+							"});",
+							"",
+							"pm.test(\"Content-Type\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"charset=UTF-8\");",
+							"});",
+							"",
+							"pm.test(\"Cookies\", function () {",
+							"    pm.expect(pm.cookies.get(\"atlassian.xsrf.token\")).to.eql(\"BR84-VGGI-5LO6-JDEE_25b71e2e950b84c323ab3039c54a9557a489c2b8_lin\");",
+							"});",
+							"",
+							"pm.test(\"FAIL Server\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Server\")).to.include(\"Edge \");",
+							"});",
+							"",
+							"pm.test(\"FAIL Content-Type\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"charset=UTF-8 \");",
+							"});",
+							"",
+							"pm.test(\"Cookies\", function () {",
+							"    pm.expect(pm.cookies.get(\"atlassian.xsrf.token\")).to.eql(\"BR84-VGGI-5LO6-JDEE_25b71e2e950b84c323ab3039c54a9557a489c2b8_lin \");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "AUaP65O4PnLFjoKqslJkCF9B",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mail.for.testbase@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://testbase.atlassian.net/rest/api/3/issue/TV-4",
+					"protocol": "https",
+					"host": [
+						"testbase",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"3",
+						"issue",
+						"TV-4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "24.1_Count",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"1) count 10, результат 10\", function () {",
+							"   pm.expect(jsonData.suggestions).to.have.lengthOf(10);",
+							"});",
+							"",
+							"pm.test(\"FAIL 1) count 10, результат 10\", function () {",
+							"   pm.expect(jsonData.suggestions).to.have.lengthOf(9);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "Token 793d2830a6360a1569c8e7b9dd1afeb2f57ffa77",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"query\": \"в\",\n  \"count\": 10\n} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+					"protocol": "http",
+					"host": [
+						"suggestions",
+						"dadata",
+						"ru"
+					],
+					"path": [
+						"suggestions",
+						"api",
+						"4_1",
+						"rs",
+						"suggest",
+						"fio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "24.2_Count",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"2) count 20, результат 20\", function () {",
+							"   pm.expect(jsonData.suggestions).to.have.lengthOf(20);",
+							"});",
+							"",
+							"pm.test(\"FAIL 2) count 20, результат 20\", function () {",
+							"   pm.expect(jsonData.suggestions).to.have.lengthOf(10);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "Token 793d2830a6360a1569c8e7b9dd1afeb2f57ffa77",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"query\": \"в\",\n  \"count\": 20\n} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+					"protocol": "http",
+					"host": [
+						"suggestions",
+						"dadata",
+						"ru"
+					],
+					"path": [
+						"suggestions",
+						"api",
+						"4_1",
+						"rs",
+						"suggest",
+						"fio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "24.3_Count",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"3) count 9, результат 9\", function () {",
+							"   pm.expect(jsonData.suggestions).to.have.lengthOf(9);",
+							"});",
+							"",
+							"pm.test(\"FAIL 3) count 9, результат 9\", function () {",
+							"   pm.expect(jsonData.suggestions).to.have.lengthOf(10);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "Token 793d2830a6360a1569c8e7b9dd1afeb2f57ffa77",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"query\": \"в\",\n  \"count\": 9\n} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+					"protocol": "http",
+					"host": [
+						"suggestions",
+						"dadata",
+						"ru"
+					],
+					"path": [
+						"suggestions",
+						"api",
+						"4_1",
+						"rs",
+						"suggest",
+						"fio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "24.4_Count",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"4) count 21, результат 10\", function () {",
+							"   pm.expect(jsonData.suggestions).to.have.lengthOf(20);",
+							"});",
+							"",
+							"pm.test(\"FAIL 4) count 21, результат 10\", function () {",
+							"   pm.expect(jsonData.suggestions).to.have.lengthOf(10);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "Token 793d2830a6360a1569c8e7b9dd1afeb2f57ffa77",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"query\": \"в\",\n  \"count\": 21\n} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+					"protocol": "http",
+					"host": [
+						"suggestions",
+						"dadata",
+						"ru"
+					],
+					"path": [
+						"suggestions",
+						"api",
+						"4_1",
+						"rs",
+						"suggest",
+						"fio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "24.5_Count",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"5) без параметра, результат 10\", function () {",
+							"   pm.expect(jsonData.suggestions).to.have.lengthOf(10);",
+							"});",
+							"",
+							"pm.test(\"FAIL 5) без параметра, результат 10\", function () {",
+							"   pm.expect(jsonData.suggestions).to.have.lengthOf(20);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "Token 793d2830a6360a1569c8e7b9dd1afeb2f57ffa77",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"query\": \"в\"\n} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+					"protocol": "http",
+					"host": [
+						"suggestions",
+						"dadata",
+						"ru"
+					],
+					"path": [
+						"suggestions",
+						"api",
+						"4_1",
+						"rs",
+						"suggest",
+						"fio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "24.6_Count",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"6) count -2147483648, результат 10\", function () {",
+							"   pm.expect(jsonData.suggestions).to.have.lengthOf(10);",
+							"});",
+							"",
+							"pm.test(\"FAIL 6) count -2147483648, результат 10\", function () {",
+							"   pm.expect(jsonData.suggestions).to.have.lengthOf(20);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "Token 793d2830a6360a1569c8e7b9dd1afeb2f57ffa77",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"query\": \"в\",\n  \"count\": -2147483648\n} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+					"protocol": "http",
+					"host": [
+						"suggestions",
+						"dadata",
+						"ru"
+					],
+					"path": [
+						"suggestions",
+						"api",
+						"4_1",
+						"rs",
+						"suggest",
+						"fio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "24.7_Count",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"7) count 2147483647, результат 10\", function () {",
+							"   pm.expect(jsonData.suggestions).to.have.lengthOf(20);",
+							"});",
+							"",
+							"pm.test(\"FAIL 7) count 2147483647, результат 10\", function () {",
+							"   pm.expect(jsonData.suggestions).to.have.lengthOf(10);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "Token 793d2830a6360a1569c8e7b9dd1afeb2f57ffa77",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"query\": \"в\",\n  \"count\": 2147483647\n} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+					"protocol": "http",
+					"host": [
+						"suggestions",
+						"dadata",
+						"ru"
+					],
+					"path": [
+						"suggestions",
+						"api",
+						"4_1",
+						"rs",
+						"suggest",
+						"fio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "24.8_Count",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"8) count 0, результат 10\", function () {",
+							"   pm.expect(jsonData.suggestions).to.have.lengthOf(10);",
+							"});",
+							"",
+							"pm.test(\"FAIL 8) count 0, результат 10\", function () {",
+							"   pm.expect(jsonData.suggestions).to.have.lengthOf(20);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "Token 793d2830a6360a1569c8e7b9dd1afeb2f57ffa77",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"query\": \"в\",\n  \"count\": 0\n} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+					"protocol": "http",
+					"host": [
+						"suggestions",
+						"dadata",
+						"ru"
+					],
+					"path": [
+						"suggestions",
+						"api",
+						"4_1",
+						"rs",
+						"suggest",
+						"fio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "24.9_Count",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"9) count null, результат 10\", function () {",
+							"   pm.expect(jsonData.suggestions).to.have.lengthOf(10);",
+							"});",
+							"",
+							"pm.test(\"FAIL 9) count null, результат 10\", function () {",
+							"   pm.expect(jsonData.suggestions).to.have.lengthOf(20);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "Token 793d2830a6360a1569c8e7b9dd1afeb2f57ffa77",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"query\": \"в\",\n  \"count\": null\n} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+					"protocol": "http",
+					"host": [
+						"suggestions",
+						"dadata",
+						"ru"
+					],
+					"path": [
+						"suggestions",
+						"api",
+						"4_1",
+						"rs",
+						"suggest",
+						"fio"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
